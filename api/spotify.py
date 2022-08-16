@@ -17,7 +17,7 @@ SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 SPOTIFY_SECRET_ID = os.getenv("SPOTIFY_SECRET_ID")
 SPOTIFY_REFRESH_TOKEN = os.getenv("SPOTIFY_REFRESH_TOKEN")
 
-FALLBACK_THEME = "spotify.html.j2"
+FALLBACK_THEME = "spotify-dark.html.j2"
 
 REFRESH_TOKEN_URL = "https://accounts.spotify.com/api/token"
 NOW_PLAYING_URL = "https://api.spotify.com/v1/me/player/currently-playing"
@@ -106,7 +106,8 @@ def makeSVG(data, background_color, border_color):
     barCSS = barGen(barCount)
 
     if data == {} or data["item"] == "None" or data["item"] is None:
-#         contentBar = "" #Shows/Hides the EQ bar if no song is currently playing
+        contentBar = "" 
+        #Shows/Hides the EQ bar if no song is currently playing
         currentStatus = "Was playing:"
         recentPlays = recentlyPlayed()
         recentPlaysLength = len(recentPlays["items"])
